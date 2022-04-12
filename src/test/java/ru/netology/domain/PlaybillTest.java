@@ -60,8 +60,8 @@ class PlaybillTest {
 
         filmListLast10 = service.findLast(filmList);
 
-        String[] expected = {"Матрица", "Зеленая миля", "Ходячий замок Хоула", "Унесенные призраками",
-                "Унесенные ветром", "Тихий дон", "Девчата", "Обливион", "Оно", "Другие"};
+        String[] expected = {"Другие", "Оно", "Обливион", "Девчата", "Тихий дон", "Унесенные ветром",
+                "Унесенные призраками", "Ходячий замок Хоула", "Зеленая миля", "Матрица"};
 
         assertArrayEquals(expected, filmListLast10);
     }
@@ -77,13 +77,14 @@ class PlaybillTest {
 
         filmListLast10 = service.findLast(filmList);
 
-        String[] expected = {"Ходячий замок Хоула", "Унесенные призраками", "Унесенные ветром", "Тихий дон",
-                "Обливион", "Другие"};
+        String[] expected = {"Другие", "Обливион", "Тихий дон", "Унесенные ветром",
+                "Унесенные призраками", "Ходячий замок Хоула"};
 
         assertArrayEquals(expected, filmListLast10);
     }
 
-    @Test//показать последние N, список > N
+    @Test
+//показать последние N, список > N
     void testFindLastListIsMoreThanN() {
         Playbill service = new Playbill();
         String[] filmList = {"Властелин колец", "Шрек", "Интерстеллар", "Маска", "Матрица", "Зеленая миля",
@@ -94,7 +95,7 @@ class PlaybillTest {
 
         filmListLastN = service.findLast(filmList, 5);
 
-        String[] expected = {"Тихий дон", "Девчата", "Обливион", "Оно", "Другие"};
+        String[] expected = {"Другие", "Оно", "Обливион", "Девчата", "Тихий дон"};
 
         assertArrayEquals(expected, filmListLastN);
 
@@ -110,7 +111,7 @@ class PlaybillTest {
 
         filmListLastN = service.findLast(filmList, 5);
 
-        String[] expected = {"Ходячий замок Хоула", "Унесенные призраками", "Обливион"};
+        String[] expected = {"Обливион", "Унесенные призраками", "Ходячий замок Хоула"};
 
         assertArrayEquals(expected, filmListLastN);
     }

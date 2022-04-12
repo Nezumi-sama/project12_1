@@ -25,42 +25,53 @@ public class Playbill {
         return playbill;
     }
 
-
-    /*    public String[] findAll(String[] playbill) {
-        int len = playbill.length;
-        String[] playbillNew = new String[len];
-
-        for (int i = 0; i < len; i++) {
-            playbillNew[i] = playbill[len - 1 - i];
-        }
-        return playbillNew;
-    }*/
-
     public String[] findLast(String[] playbill) {
-        if (playbill.length <= 10) {
-            return playbill;
+        String[] playbillNew;
+        int len = playbill.length;
+
+        if (len <= 10) {
+            playbillNew = playbill;
         } else {
             String[] playbillLast = new String[10];
-            int len = playbill.length - 10;
+            len = playbill.length - 10;
 
             for (int i = 0; i < 10; i++) {
                 playbillLast[i] = playbill[len + i];
             }
-            return playbillLast;
+            playbillNew = playbillLast;
         }
+
+        String[] playbillNewLast = new String[playbillNew.length];
+        len = playbillNew.length;
+        for (int i = 0; i < len; i++) {
+            playbillNewLast[i] = playbillNew[len - 1 - i];
+        }
+        return playbillNewLast;
     }
 
     public String[] findLast(String[] playbill, int last) {
-        if (playbill.length <= last) {
-            return playbill;
+
+        String[] playbillNew;
+        int len = playbill.length;
+
+        if (len <= last) {
+            playbillNew = playbill;
         } else {
             String[] playbillLast = new String[last];
-            int len = playbill.length - last;
+            len = playbill.length - last;
 
             for (int i = 0; i < last; i++) {
                 playbillLast[i] = playbill[len + i];
             }
-            return playbillLast;
+            playbillNew = playbillLast;
         }
+
+        String[] playbillNewLast = new String[playbillNew.length];
+        len = playbillNew.length;
+        for (int i = 0; i < len; i++) {
+            playbillNewLast[i] = playbillNew[len - 1 - i];
+        }
+        return playbillNewLast;
     }
+
 }
